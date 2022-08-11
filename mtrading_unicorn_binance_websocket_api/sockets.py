@@ -194,8 +194,18 @@ class BinanceWebSocketApiSocket(object):
                         logger.critical("BinanceWebSocketApiSocket.start_socket(" + str(self.stream_id) + ", " +
                                         str(self.channels) + ", " + str(self.markets) + ") - Exception ConnectionClosed "
                                         "- error_msg: " + str(error_msg))
+                        # LZ: always close websocket for housekeeping of OS resources/handles
+                        # 2022-05-24 17:00:23,636 | ERROR | frequent_checks | BinanceWebSocketApiManager.get_process_usage_cpu() - OSError - error_msg: [Errno 24] Too many open files: '/proc/stat'
+                        # Traceback (most recent call last):
+                        #   File "src/gevent/libev/corecext.pyx", line 1327, in gevent.libev.corecext._syserr_cb
+                        #   File "src/gevent/libev/corecext.pyx", line 571, in gevent.libev.corecext.loop._handle_syserr
+                        #   File "src/gevent/libev/corecext.pyx", line 584, in gevent.libev.corecext.loop.handle_error
+                        #   File "/home/lukas/anaconda3/envs/mtrading3_7/lib/python3.7/site-packages/gevent/hub.py", line 543, in handle_error
+                        #   File "/home/lukas/anaconda3/envs/mtrading3_7/lib/python3.7/site-packages/gevent/hub.py", line 569, in handle_system_error
+                        # greenlet.error: cannot switch to a different thread
+                        # (libev) error creating signal/async pipe: Too many open files
+                        websocket.close()
                         if "WebSocket connection is closed: code = 1008" in str(error_msg):
-                            websocket.close()
                             self.manager.stream_is_crashing(self.stream_id, error_msg)
                             self.manager.set_restart_request(self.stream_id)
                             sys.exit(1)
