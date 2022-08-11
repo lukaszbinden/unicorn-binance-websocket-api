@@ -33,9 +33,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from unicorn_binance_websocket_api.manager import BinanceWebSocketApiManager
-from unicorn_binance_websocket_api.restclient import BinanceWebSocketApiRestclient
-from unicorn_binance_websocket_api.restserver import BinanceWebSocketApiRestServer
+from mtrading_unicorn_binance_websocket_api.manager import BinanceWebSocketApiManager
+from mtrading_unicorn_binance_websocket_api.restclient import BinanceWebSocketApiRestclient
+from mtrading_unicorn_binance_websocket_api.restserver import BinanceWebSocketApiRestServer
 import logging
 import unittest
 import os
@@ -514,7 +514,7 @@ class TestRestApi(unittest.TestCase):
         binance_websocket_api_manager.stop_manager_with_all_streams()
 
     def test_invalid_exchange(self):
-        from unicorn_binance_websocket_api.exceptions import UnknownExchange
+        from mtrading_unicorn_binance_websocket_api.exceptions import UnknownExchange
         try:
             BinanceWebSocketApiManager(exchange="invalid-exchange.com", high_performance=True)
         except UnknownExchange:

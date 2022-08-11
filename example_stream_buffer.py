@@ -34,7 +34,7 @@
 # IN THE SOFTWARE.
 
 from __future__ import print_function
-from unicorn_binance_websocket_api.manager import BinanceWebSocketApiManager
+from mtrading_unicorn_binance_websocket_api.manager import BinanceWebSocketApiManager
 import logging
 import time
 import threading

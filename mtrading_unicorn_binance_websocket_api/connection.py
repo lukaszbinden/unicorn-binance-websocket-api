@@ -33,7 +33,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from unicorn_binance_websocket_api.exceptions import StreamRecoveryError
+from mtrading_unicorn_binance_websocket_api.exceptions import StreamRecoveryError
 import asyncio
 import copy
 import logging

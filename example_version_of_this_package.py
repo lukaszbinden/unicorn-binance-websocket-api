@@ -33,10 +33,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-import unicorn_binance_websocket_api
+import mtrading_unicorn_binance_websocket_api
 
 # create instance of BinanceWebSocketApiManager
-binance_websocket_api_manager = unicorn_binance_websocket_api.BinanceWebSocketApiManager()
+binance_websocket_api_manager = mtrading_unicorn_binance_websocket_api.BinanceWebSocketApiManager()
 
 # get version of the used UNICORN Binance WebSocket API
 if binance_websocket_api_manager.is_update_available():

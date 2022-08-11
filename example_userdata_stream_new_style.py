@@ -33,7 +33,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from unicorn_binance_websocket_api.manager import BinanceWebSocketApiManager
+from mtrading_unicorn_binance_websocket_api.manager import BinanceWebSocketApiManager
 import logging
 import time
 import threading
