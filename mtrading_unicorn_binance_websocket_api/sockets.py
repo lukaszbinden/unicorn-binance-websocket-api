@@ -204,7 +204,7 @@ class BinanceWebSocketApiSocket(object):
                         #   File "/home/lukas/anaconda3/envs/mtrading3_7/lib/python3.7/site-packages/gevent/hub.py", line 569, in handle_system_error
                         # greenlet.error: cannot switch to a different thread
                         # (libev) error creating signal/async pipe: Too many open files
-                        websocket.close()
+                        await websocket.close()
                         if "WebSocket connection is closed: code = 1008" in str(error_msg):
                             self.manager.stream_is_crashing(self.stream_id, error_msg)
                             self.manager.set_restart_request(self.stream_id)
